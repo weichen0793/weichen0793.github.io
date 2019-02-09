@@ -20,6 +20,35 @@
 <p>	b. Penalty function: To avoid the joints reaching limit angles and links intersecting with obstacles, we add penalty function into score function in the form of alpha/distance. Here "alpha" is a constant to adjust the influence of penalty function, and "distance" is the distance from angle of joint to limit angle or distance from link to obstacles.
 <p>	c. Optimization function: We choose the "fmincon" function in MATLAB to do optimization.
 <p>	d. Optimization algorithm: SQP
+<p>
+	<b>3. Evaluation:</b>
+<p>	a. Use random initial joints to do optimization 20 times; Pick the finial joints with shortest distance from final position to target.
+<p>	b. Set the random obstacles with number from 1 to 15. The following plots show the links reach the target with different number of obstacles.
+<p>	<img src="1_obs.jpg" alt="1_obs" align="left">
+	<img src="3_obs.jpg" alt="3_obs" align="center">
+	<img src="5_obs.jpg" alt="5_obs" align="right">
+<p>	<img src="7_obs.jpg" alt="7_obs" align="left>
+	<img src="9_obs.jpg" alt="9_obs" align="center">
+	<img src="15_obs.jpg" alt="15_obs" align="right">
+
+
+<HR>
+<!-- ------------------------------------------------------------- -->
+<h2>II. With Derivative</h2>
+
+<p>The task of this part is to test the influence of adding derivative. 
+
+<p>
+	<b>1. Calculating Gradient:</b>
+
+
+<HR>
+<!-- ------------------------------------------------------------- -->
+<h2>III. Different Algoritms</h2>
+
+<HR>
+<!-- ------------------------------------------------------------- -->
+<h2>IV. Local Minima</h2>
 </body>
 
 </html>
