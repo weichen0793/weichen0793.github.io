@@ -12,10 +12,14 @@
 <p>The main goal of this part is to reach the target with certain input angles. To gain this goal, first we need to do forward kinematics and use optimization to find the right angles. Then we output the angles to the inverse kinematics part. The details are shown as follows:
 
 <p>
-	1. Forward kinematics:
+	<b>1. Forward kinematics:</b> 
+<p>	a. Use transformation matrix to determine the position of last link: The "eul2tform" function in MATLAB can turn the Euler angles into transformation matrix. We can calculate from first link to last link to get the transformation matrix T1, T2, ..., Tn from each joint. The final transformation matrix of last link (Tf) is simply the multiplication of each matrix, i.e. Tf=T1*T2*...*Tn.
 <p>
-	2. Optimization:
-
+	<b>2. Optimization:</b>
+<p>	a. Score function: The form of score function is (position - target)'*(position - target). It means the Euclidean distance between target and our position.
+<p>	b. Penalty function: To avoid the joints reaching limit angles and links intersecting with obstacles, we add penalty function into score function in the form of alpha/distance. Here "alpha" is a constant to adjust the influence of penalty function, and "distance" is the distance from angle of joint to limit angle or distance from link to obstacles.
+<p>	c. Optimization function: We choose the "fmincon" function in MATLAB to do optimization.
+<p>	d. Optimization algorithm: SQP
 </body>
 
 </html>
