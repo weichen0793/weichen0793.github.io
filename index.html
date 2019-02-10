@@ -32,7 +32,7 @@
 	<img src="15_obs.jpg" alt="15_obs" height=300">
 
 <p>	c. As the number of obstacles increases, the mean time of searching the target increases. (In fact I think the main reason of time increasing is not the number of obstacles, but is whether the position of obstacles "blocking" the links from target. Moreover, I think we can carefully examine the space that links can move and find out the influence of the position of obstacles.) The following plot shows the relation between time cost and number of obstacles. 
-<p>	<img src="t_obs.jpg" alt="time-obs" height="300">
+<p>	<img src="t_obs.jpg" alt="time-obs" height="450">
 
 <HR>
 <!-- ------------------------------------------------------------- -->
@@ -58,18 +58,19 @@
 <p>	<img src="test_set" alt="test_set" height="450">
 <p>	The test set has 3 obstacles and target is at (0.5, 0.5, 0.5) with quaternion value [1,0,0,0]. The radius of obstacles is 0.05 and obstacles are at position (0.3, 0.1, 0.1), (0.1, 0.3, 0.1), (0.1, 0.1, 0.3). The target and obstacles are shown as above.
 
-<p>	<img src="sqp_alg" alt="SQP-algorithm" height="360">
-	<img src="interior_alg" alt="interior_point" height="360">
-<p>	<img src="active_alg" alt="active_set" height="360">
-	<img src="trust_alg" alt="trust_region_reflective" height="360">
+<p>	<img src="dif_alg" alt="different-algorithms" height="450">
 <p>
 	<b>1. SQP:</b>
+<p>	The performance of SQP is shown as green triangle in above plot. We can see that the sqp have best performance with least time and shortest distance.
 <p>
 	<b>2. Interior Point:</b>
+<p>	The performance of interior-point is shown as red circle in above plot. It has worst performance at this situation. The variance of its distance is large.
 <p>
 	<b>3. Active-Set:</b>
+<p>	(I cannot get the result from active-set. The algorithm could induce "NAN" when optimizating. But I find active-set run very fast. I hope I can tune my program to be suitable to this algorithm.)
 <p>
 	<b>4. Trust-Region-Reflective:</b>
+<p>	The performance of trust-region-reflective is shown as blue diamond is above plot. It has medium performance with similar distance as "sqp", but it needs more time. (I think it could relate to my differential method, because I use the gradient mentioned in second part with difference. If I use more sophisticated differential method, the performance may be much better.)
 <p>
 	<b>5. CMA-ES:</b>
 <p>	<img src="cma_es_alg" alt="CMA-ES" height="450">
