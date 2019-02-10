@@ -31,7 +31,7 @@
 	<img src="9_obs.jpg" alt="9_obs" height="300">
 	<img src="15_obs.jpg" alt="15_obs" height=300">
 
-<p>	c. As the number of obstacles increases, the mean time of searching the target increases. (In fact I think the main reason of time increasing is not the number of obstacles, but is whether the position of obstacles "blocking" the links from target. Moreover, I think we can carefully examine the space that links can move and find out the influence of the position of obstacles.) The following plot shows the relation between time cost and number of obstacles. 
+<p>	c. As the number of obstacles increases, the mean time of searching the target increases. (In fact I think the main reason of time increasing is not the number of obstacles, but is whether the position of obstacles "blocking" the links from target. Moreover, I think we can carefully examine the space that links can move and find out the influence of the position of obstacles.) The following plot shows the relation between time cost and number of obstacles. The red dots represent mean time of each number of obstacles.
 <p>	<img src="t_obs.jpg" alt="time-obs" height="450">
 
 <HR>
@@ -79,7 +79,17 @@
 <!-- ------------------------------------------------------------- -->
 <h2>IV. Local Minima</h2>
 
-<p>	
+<p>	In this part, we study the local minima of inverse kinematics problems. First, we study why the problem could have multiple solutions. Then, we find a way to catch different solutions.
+
+<p>
+	<b>1. Reason of multiple Solutions:</b>
+<p>	a. The main reason of multiple solutions is degrees of freedom. We examine two different examples: one has 4 links and 3 obstacles and another one has 6 links and 3 same obstacles. After we run the program for 10 loops, the first one has quiet similar solution. However, the latter one has two different solutions, as shown in the plot below. (So I think when we have more links, the system has more methods to explore the space, and it could have more solutions. Similarly, when we have more obstacles, the system has more constraints, and it will have less freedom.)
+<p>	<img src="two_sol.jpg" alt="different_solutions" height="450">
+<p>	b. Another reason is random initialization. We use random initialization to initialize joints of each links. It is possible that a large number of initial joints could end up in same solution and small amount of initial joints end up in another solution. In order to get the best result, we run the optimization 20 loops with different random initializations and select the best result (shortest distance) from these.
+
+<p>
+	<b>2. Catch Different Solutions:</b>
+<p>	In order to provide the user with different solutions, we record each solutions during the run time. After optimization, we calculate distances of the solutions from each other, and provide users with two solutions which have largest distance.
 </body>
 
 </html>
