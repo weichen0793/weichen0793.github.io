@@ -61,7 +61,7 @@
 	<img src="test_set.jpg" alt="test_set" height="450">
 <p>
 	<b>1. SQP:</b>
-<p>	The performance of SQP is shown as green triangle in above plot. We can see that the sqp have best performance with least time and shortest distance.
+<p>	The performance of SQP is shown as green triangle in above plot. We can see that the sqp have best performance with least time and medium distance.
 <p>
 	<b>2. Interior Point:</b>
 <p>	The performance of interior-point is shown as red circle in above plot. It has worst performance at this situation. The variance of its distance is large.
@@ -70,7 +70,7 @@
 <p>	(I cannot get the result from active-set. The algorithm could induce "NAN" when optimizating. But I find active-set run very fast. I hope I can tune my program to be suitable to this algorithm.)
 <p>
 	<b>4. Trust-Region-Reflective:</b>
-<p>	The performance of trust-region-reflective is shown as blue diamond is above plot. It has medium performance with similar distance as "sqp", but it needs more time. (I think it could relate to my differential method, because I use the gradient mentioned in second part with difference. If I use more sophisticated differential method, the performance may be much better.)
+<p>	The performance of trust-region-reflective is shown as blue circle is above plot. It has better performance with shorter distance than "sqp", but it needs more time. (I think it could relate to my differential method, because I use the gradient mentioned in second part with difference. If I use more sophisticated differential method, the performance may be much better.)
 <p>
 	<b>5. CMA-ES:</b>
 <p>	<img src="cma_sqp.jpg" alt="CMA-ES" height="450">
